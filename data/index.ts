@@ -354,6 +354,65 @@ const continueToStory = () => {
             "Quiet editorial typography",
             "Minimal interface with strong composition",
         ],
+    },
+    {
+        id: 6,
+        title: "India HexMap",
+        des: "A Python package and visual toolkit for building India-focused hex maps with clean, reusable geographic grids.",
+        overview: "India HexMap is a Python package built around the idea of making Indian data easier to visualize through hexagonal maps. It packages the layout logic, mapping helpers, and presentation assets needed to create consistent India-centric hex map visuals for data stories, civic dashboards, and research workflows.",
+        whatItIs: "A pip-installable Python package for generating India hex map layouts and using them in data visualization projects.",
+        problem: "Standard geographic maps can overemphasize area and make district or state comparisons harder to read, especially when the story depends on equal visual weight across regions.",
+        howItWorks: "The package organizes India into a hexagonal grid, exposes reusable helpers for map rendering and layout alignment, and lets downstream projects build consistent visualizations without recreating the geometry each time.",
+        whyItStandsOut: "It focuses on India-specific map use cases, which makes it more useful than a generic hex-grid utility when the goal is clear, publication-ready geographic storytelling.",
+        repositoryStructure: [
+            "Core Python package for hex-map layout and map generation",
+            "Reusable geometry helpers for grid alignment and projection",
+            "Visualization assets for portfolio and documentation use",
+            "Package metadata ready for pip installation and reuse",
+        ],
+        installation: [
+            "pip install india-hexmap",
+            "python -m pip install india-hexmap",
+            "pip install git+https://github.com/In-decoded/india-hexmap.git",
+        ],
+        setupNotes: [
+            "Best suited for India-focused data visualization workflows",
+            "Can be imported into notebooks, scripts, or visualization apps",
+            "Pairs well with charting libraries such as Matplotlib, Plotly, or D3-backed frontends",
+        ],
+        localRun: [
+            "python -c \"import india_hexmap\"",
+            "python -m pip show india-hexmap",
+        ],
+        codeSnippets: [
+            {
+                title: "Package install",
+                language: "bash",
+                code: `pip install india-hexmap
+python -m pip install india-hexmap`,
+            },
+            {
+                title: "Basic import",
+                language: "python",
+                code: `import india_hexmap
+
+# Build an India-oriented hex map workflow from reusable helpers
+print("india-hexmap ready")`,
+            },
+        ],
+        iconLists: ["/python.svg", "/ver.svg", "/tail.svg"],
+        link: "https://pypi.org/project/india-hexmap/",
+        githubLink: "https://github.com/In-decoded/india-hexmap",
+        category: "Open Source",
+        techStack: ["Python", "pip", "Data Visualization"],
+        details: "A Python package for India-specific hex map workflows, designed to make geographic storytelling more consistent and reusable across notebooks, dashboards, and reporting tools.",
+        features: [
+            "pip-installable package workflow",
+            "India-specific hex map focus",
+            "Reusable visualization geometry",
+            "Notebook and dashboard friendly",
+            "Better readability for comparisons",
+        ],
     }
 ];
 
