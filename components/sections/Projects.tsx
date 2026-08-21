@@ -53,18 +53,18 @@ const ProjectCard = ({
           </div>
 
           {/* Project Image Container */}
-          <div className="absolute inset-x-4 top-2 bottom-2 transform translate-y-[28%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[14%] group-hover:scale-[0.98] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border border-neutral-200/50 dark:border-neutral-800/80 group-hover:border-neutral-300 dark:group-hover:border-neutral-700 bg-neutral-100 dark:bg-[#151515]">
+          <div className="absolute inset-x-6 top-3 bottom-0 transform translate-y-[16%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[8%] group-hover:scale-[0.99] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border-2 border-neutral-200/60 dark:border-neutral-800/90 group-hover:border-neutral-300 dark:group-hover:border-neutral-700 bg-neutral-100 dark:bg-[#151515] p-2.5">
             
             {/* Noise Texture */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+            <div className="absolute inset-0 opacity-[0.01] dark:opacity-[0.04] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
             {/* Image */}
-            <div className="relative w-full h-full z-10">
+            <div className="relative w-full h-full z-10 overflow-hidden rounded-lg bg-black">
               <Image 
                 src={projectImage} 
                 alt={title} 
                 fill 
-                className="object-contain object-center p-4"
+                className="object-fill"
               />
             </div>
           </div>

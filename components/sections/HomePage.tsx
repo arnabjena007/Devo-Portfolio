@@ -66,11 +66,11 @@ export const HomePage = () => {
     return (
         <div className="w-full relative">
             <div
-                className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]"
+                className="w-full max-w-3xl mx-auto px-6 sm:px-8 relative pb-16 text-neutral-700 dark:text-neutral-300 leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]"
                 style={{ fontFamily: "var(--font-kalam), cursive" }}
             >
 
-                <div className="relative overflow-hidden -mx-8 sm:-mx-12 px-8 sm:px-12">
+                <div className="relative overflow-hidden -mx-6 sm:-mx-8 px-6 sm:px-8">
                     {/* Dotted grid pattern background */}
                     <div className="absolute inset-0 dotted-background" />
 
@@ -230,14 +230,14 @@ export const HomePage = () => {
                         <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Connect</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 -mx-8 sm:-mx-12 border-t border-neutral-200 dark:border-white/[0.08]">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 -mx-6 sm:-mx-8 border-t border-neutral-200 dark:border-white/[0.08]">
                         {/* GitHub */}
                         <a 
                             href="https://github.com/arnabjena007" 
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's GitHub repository profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-6 sm:px-8 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
@@ -254,7 +254,7 @@ export const HomePage = () => {
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's LinkedIn profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-6 sm:px-8 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
@@ -271,7 +271,7 @@ export const HomePage = () => {
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's X profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-6 sm:px-8 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">

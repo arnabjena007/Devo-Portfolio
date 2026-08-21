@@ -69,7 +69,7 @@ export function BlogLayout({
       <ReadingProgressBar />
 
       {/* Main Container - matches the HomePage center column */}
-      <div className="mx-auto min-h-screen w-full max-w-6xl border-l border-r border-solid border-neutral-200 px-8 pb-24 pt-8 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-12">
+      <div className="mx-auto min-h-screen w-full max-w-6xl border-l border-r border-solid border-neutral-200 px-6 pb-24 pt-8 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-8">
         
         {/* ── Top bar: back link ── */}
         <div className="pb-8 border-b border-neutral-200 dark:border-neutral-800/50 mb-10">
@@ -170,7 +170,7 @@ export function BlogLayout({
         </div>
 
         {/* Footer inside the bordered container */}
-        <div className="mt-16 -mx-8 sm:-mx-12">
+        <div className="mt-16 -mx-6 sm:-mx-8">
           <Footer />
         </div>
       </div>

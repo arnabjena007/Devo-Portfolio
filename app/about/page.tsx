@@ -53,8 +53,8 @@ const DiagonalSeparator = () => (
 
 const About = () => {
     return (
-        <div className="mx-auto w-full max-w-3xl border-l border-r border-solid border-neutral-200 px-8 pb-16 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-12">
-            <header className="relative -mx-8 overflow-hidden border-b border-neutral-200 px-8 py-12 text-center dark:border-white/[0.05] sm:-mx-12 sm:px-12 sm:text-left">
+        <div className="mx-auto w-full max-w-3xl border-l border-r border-solid border-neutral-200 px-6 pb-16 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-8">
+            <header className="relative -mx-6 overflow-hidden border-b border-neutral-200 px-6 py-12 text-center dark:border-white/[0.05] sm:-mx-8 sm:px-8 sm:text-left">
                 <img
                     src="/footer-bg.png"
                     alt=""
@@ -120,7 +120,7 @@ const About = () => {
                 </div>
             </section>
 
-            <div className="-mx-8 mt-16 sm:-mx-12">
+            <div className="-mx-6 mt-16 sm:-mx-8">
                 <Footer />
             </div>
         </div>

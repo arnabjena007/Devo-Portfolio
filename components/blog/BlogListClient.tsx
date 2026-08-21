@@ -100,8 +100,8 @@ interface BlogListClientProps {
 
 export function BlogListClient({ posts }: BlogListClientProps) {
   return (
-    <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
-      <header className="relative -mx-8 sm:-mx-12 px-8 sm:px-12 py-12 w-auto text-center sm:text-left overflow-hidden border-b border-neutral-200 dark:border-white/[0.05]">
+    <div className="w-full max-w-3xl mx-auto px-6 sm:px-8 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
+      <header className="relative -mx-6 sm:-mx-8 px-6 sm:px-8 py-12 w-auto text-center sm:text-left overflow-hidden border-b border-neutral-200 dark:border-white/[0.05]">
         {/* Background Image */}
         <img 
             src="/footer-bg.png" 
@@ -154,7 +154,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
       </section>
 
       {/* Footer inside the bordered container */}
-      <div className="mt-16 -mx-8 sm:-mx-12">
+      <div className="mt-16 -mx-6 sm:-mx-8">
         <Footer />
       </div>
     </div>

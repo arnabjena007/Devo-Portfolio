@@ -39,9 +39,9 @@ const GitHubContributions = () => {
       };
 
   return (
-    <div className="space-y-6 -mx-8 sm:-mx-12">
+    <div className="space-y-6 -mx-6 sm:-mx-8">
       {/* Header row */}
-      <div className="flex items-center justify-between px-8 sm:px-12">
+      <div className="flex items-center justify-between px-6 sm:px-8">
         <span className="text-xs font-serif text-neutral-500 dark:text-neutral-400">
           {stats.total > 0
             ? `${stats.total.toLocaleString("en")} contributions in the last year`
@@ -58,7 +58,7 @@ const GitHubContributions = () => {
       </div>
 
       {/* Gitmap Heatmap Grid */}
-      <div className="px-8 sm:px-12 overflow-x-auto blog-scroll">
+      <div className="px-6 sm:px-8 overflow-x-auto blog-scroll">
         <Gitmap
           username="arnabjena007"
           theme={portfolioTheme}
