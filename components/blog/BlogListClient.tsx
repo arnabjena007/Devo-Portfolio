@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import type { BlogMeta } from "@/lib/blog";
 import Footer from "@/components/layout/Footer";
+import { HeadingAccent } from "@/components/ui/heading-accent";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
@@ -117,7 +118,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
           className="mb-8 relative z-10"
         >
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white drop-shadow-md tracking-wide mb-4">
-            Blog
+            <HeadingAccent variant="double" accentClassName="text-yellow-300">Blog</HeadingAccent>
           </h1>
           <p className="text-white/90 drop-shadow-md text-base leading-relaxed max-w-xl mx-auto sm:mx-0">
             Deep dives into React internals, distributed systems, TypeScript patterns, and the craft of building software.
@@ -130,7 +131,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
       <section className="space-y-6 mt-8">
         <div className="relative py-3 flex items-center justify-between">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-          <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">All Posts</h2>
+          <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white"><HeadingAccent>All Posts</HeadingAccent></h2>
           <span className="text-xs font-mono text-neutral-500">
             {posts.length} post{posts.length !== 1 ? "s" : ""}
           </span>

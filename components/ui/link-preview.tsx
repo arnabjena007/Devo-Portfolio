@@ -49,7 +49,7 @@ export const LinkPreview = ({
     return (
         <>
             {isMounted ? (
-                <div className="hidden">
+                <span className="hidden">
                     <Image
                         src={imageSrc}
                         width={width}
@@ -58,7 +58,7 @@ export const LinkPreview = ({
                         priority={true}
                         alt="hidden"
                     />
-                </div>
+                </span>
             ) : null}
 
             <Link
@@ -74,7 +74,7 @@ export const LinkPreview = ({
             >
                 {children}
                 {isOpen && (
-                    <motion.div
+                    <motion.span
                         initial={{ opacity: 0, y: 20, scale: 0.6 }}
                         animate={{
                             opacity: 1,
@@ -92,7 +92,7 @@ export const LinkPreview = ({
                             x: translateX,
                         }}
                     >
-                        <div
+                        <span
                             className="flex flex-col p-2 bg-neutral-900 border border-white/10 shadow-xl rounded-xl w-[260px]"
                         >
                             <Image
@@ -104,12 +104,12 @@ export const LinkPreview = ({
                                 alt="preview image"
                             />
                             {description && (
-                                <p className="text-xs text-neutral-300 mt-2 text-center line-clamp-2">
+                                <span className="text-xs text-neutral-300 mt-2 text-center line-clamp-2">
                                     {description}
-                                </p>
+                                </span>
                             )}
-                        </div>
-                    </motion.div>
+                        </span>
+                    </motion.span>
                 )}
             </Link>
         </>

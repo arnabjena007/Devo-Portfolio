@@ -5,6 +5,8 @@ import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import CodeSnippetBlock from "@/components/sections/CodeSnippetBlock";
+import { HeadingAccent } from "@/components/ui/heading-accent";
+import { TechnologyIcon } from "@/components/ui/technology-icon";
 
 interface Props {
   params: Promise<{
@@ -41,13 +43,13 @@ const Page = async ({ params }: Props) => {
   const detailProject = project as typeof project & ProjectDetail;
 
   return (
-    <div className="w-full min-h-screen font-serif dark:bg-[#09090B]">
+    <div className="w-full min-h-screen font-sans dark:bg-[#09090B]">
       <div className="w-full max-w-3xl mx-auto border-l border-r border-neutral-200 dark:border-white/[0.1]">
         <div className="relative h-28 border-b border-neutral-200 dark:border-neutral-800/60 overflow-hidden">
           <div className="absolute inset-0 dotted-background" />
         </div>
 
-        <main className="relative border-b border-neutral-200 dark:border-neutral-800/60 font-serif tracking-tight">
+        <main className="relative border-b border-neutral-200 dark:border-neutral-800/60 font-sans tracking-normal">
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
 
@@ -57,7 +59,7 @@ const Page = async ({ params }: Props) => {
                 <ChevronLeft />
               </div>
             </Link>
-            <p className="text-lg font-serif font-semibold text-amber-300">{project?.title}</p>
+            <p className="text-lg font-sans font-semibold text-amber-600 dark:text-amber-300">{project?.title}</p>
           </div>
 
           {/* Preview Image */}
@@ -70,7 +72,7 @@ const Page = async ({ params }: Props) => {
             <Link
               href={project?.githubLink || project?.link}
               target="_blank"
-              className="flex items-center justify-center gap-1.5 py-2.5 text-white hover:bg-neutral-950/40 transition-colors cursor-pointer font-serif"
+              className="flex items-center justify-center gap-1.5 py-2.5 text-neutral-800 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-950/40 transition-colors cursor-pointer font-sans"
             >
               <svg
                 width="15"
@@ -86,7 +88,7 @@ const Page = async ({ params }: Props) => {
             <Link
               href={project?.link}
               target="_blank"
-              className={`flex items-center justify-center gap-1.5 py-2.5 hover:bg-neutral-950/40 text-white cursor-pointer transition-colors font-serif`}
+              className={`flex items-center justify-center gap-1.5 py-2.5 text-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-950/40 dark:text-white cursor-pointer transition-colors font-sans`}
             >
               <svg
                 width="15"
@@ -108,10 +110,10 @@ const Page = async ({ params }: Props) => {
 
           <div className="flex items-start px-4 sm:px-6 justify-center flex-col gap-5 py-5">
             <div className="flex items-center w-full justify-between">
-              <h3 className="text-5xl md:text-7xl leading-none font-serif font-semibold text-amber-300 tracking-tight">
-                {project?.title}
+              <h3 className="text-5xl md:text-7xl leading-none font-serif font-semibold text-amber-600 dark:text-amber-300 tracking-tight">
+                <HeadingAccent variant="double" accentClassName="text-amber-500 dark:text-amber-300">{project?.title}</HeadingAccent>
               </h3>
-              <span className="text-[11px] flex items-center gap-1 justify-center rounded-full text-emerald-300 font-serif">
+              <span className="text-[11px] flex items-center gap-1 justify-center rounded-full text-emerald-600 dark:text-emerald-300 font-sans">
                 <div className="w-3 h-3 relative">
                   <div className="w-3 h-3 animate-ping rounded-full bg-green-300" />
                   <div className="absolute w-2 h-2 -translate-y-1/2 left-1/2 top-1/2 bg-green-500 rounded-full -translate-x-1/2" />
@@ -131,7 +133,7 @@ const Page = async ({ params }: Props) => {
           </div>
 
           {detailProject.repositoryStructure?.length ? (
-            <PlainListSection title="Repository Structure" items={detailProject.repositoryStructure} accent="text-amber-300" />
+            <PlainListSection title="Repository Structure" items={detailProject.repositoryStructure} accent="text-amber-600 dark:text-amber-300" />
           ) : null}
 
           {detailProject.installation?.length ? (
@@ -143,12 +145,12 @@ const Page = async ({ params }: Props) => {
           ) : null}
 
           {detailProject.flagReference?.length ? (
-            <PlainListSection title="Flags" items={detailProject.flagReference} accent="text-amber-300" />
+            <PlainListSection title="Flags" items={detailProject.flagReference} accent="text-amber-600 dark:text-amber-300" />
           ) : null}
 
           {detailProject.codeSnippets?.length ? (
             <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
-              <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+              <p className="text-lg font-sans font-semibold text-amber-600 dark:text-amber-300 mb-3 tracking-wide">
                 Code Snippets
               </p>
               <div className="space-y-4">
@@ -165,17 +167,17 @@ const Page = async ({ params }: Props) => {
           ) : null}
 
           {detailProject.setupNotes?.length ? (
-            <PlainListSection title="Setup Notes" items={detailProject.setupNotes} accent="text-amber-300" />
+            <PlainListSection title="Setup Notes" items={detailProject.setupNotes} accent="text-amber-600 dark:text-amber-300" />
           ) : null}
 
           {project?.features?.length ? (
             <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
-              <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+              <p className="text-lg font-sans font-semibold text-amber-600 dark:text-amber-300 mb-3 tracking-wide">
                 Key Features
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.features.map((feature, index) => (
-                  <div key={index} className="rounded-md border border-amber-300/10 bg-white/5 px-3 py-2 text-sm text-neutral-200 font-serif">
+                  <div key={index} className="rounded-md border border-amber-500/25 bg-amber-50 px-3 py-2 text-sm text-neutral-700 dark:border-amber-300/10 dark:bg-white/5 dark:text-neutral-200 font-sans">
                     {feature}
                   </div>
                 ))}
@@ -184,25 +186,23 @@ const Page = async ({ params }: Props) => {
           ) : null}
 
           <div className="px-4 sm:px-6 py-4 border-y border-neutral-200 dark:border-neutral-800">
-            <p className="text-lg font-serif font-semibold text-amber-300 mb-2.5 tracking-wide ">
+            <p className="text-lg font-sans font-semibold text-amber-600 dark:text-amber-300 mb-2.5 tracking-wide ">
               Stack used
             </p>
             <div className="flex flex-wrap gap-2 pb-2">
-              {project?.techStack.map((item, i) => {
-                  const iconSrc = project.iconLists?.[i];
-                  const icon = iconSrc ? <Image src={iconSrc} alt={item} width={12} height={12} className="opacity-70" /> : null;
-                  return <Badge key={i} name={item} icon={icon} />;
+              {project.techStack?.map((item) => {
+                  return <Badge key={item} name={item} icon={<TechnologyIcon name={item} />} />;
               })}
             </div>
           </div>
 
-          <div className="p-4 font-serif border-neutral-200 dark:border-neutral-900 items-center justify-center flex">
-            <p className="text-sm text-neutral-400">
+          <div className="p-4 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               For more cool projects, visit my{" "}
               <Link
                 href={"https://github.com/arnabjena007"}
                 target={"_blank"}
-                className="text-amber-300 font-semibold"
+                className="text-amber-600 dark:text-amber-300 font-semibold"
               >
                 GitHub.
               </Link>
@@ -229,10 +229,10 @@ const Section = ({ title, text }: { title: string; text?: string }) => {
 
   return (
     <div className="w-full">
-      <p className="text-xs uppercase tracking-[0.35em] text-amber-300 mb-2 font-serif">
+      <p className="text-xs uppercase tracking-[0.35em] text-amber-600 dark:text-amber-300 mb-2 font-sans">
         {title}
       </p>
-      <p className="text-wrap text-neutral-100 leading-8 font-serif text-[17px]">
+      <p className="text-wrap text-neutral-800 dark:text-neutral-100 leading-8 font-sans text-[17px]">
         {text}
       </p>
     </div>
@@ -241,12 +241,12 @@ const Section = ({ title, text }: { title: string; text?: string }) => {
 
 const PlainListSection = ({ title, items, accent }: { title: string; items: string[]; accent: string }) => (
   <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
-    <p className={`text-lg font-serif font-semibold mb-3 tracking-wide ${accent}`}>
+    <p className={`text-lg font-sans font-semibold mb-3 tracking-wide ${accent}`}>
       {title}
     </p>
-    <div className="space-y-1.5 text-neutral-200 font-serif text-[15px] leading-7">
+    <div className="space-y-1.5 text-neutral-700 dark:text-neutral-200 font-sans text-[15px] leading-7">
       {items.map((item, index) => (
-        <p key={index} className="before:content-['-'] before:mr-2 before:text-amber-300">
+        <p key={index} className="before:content-['-'] before:mr-2 before:text-amber-600 dark:before:text-amber-300">
           {item}
         </p>
       ))}
@@ -256,7 +256,7 @@ const PlainListSection = ({ title, items, accent }: { title: string; items: stri
 
 const CommandListSection = ({ title, items }: { title: string; items: string[] }) => (
   <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
-    <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+    <p className="text-lg font-sans font-semibold text-amber-600 dark:text-amber-300 mb-3 tracking-wide">
       {title}
     </p>
     <CodeSnippetBlock

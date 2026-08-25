@@ -8,13 +8,13 @@ const Experience = () => {
         <div className="py-20" id="experience">
 
 
-            <div className="w-full mt-12 mb-12 p-8 rounded-[1.75rem] border border-white/20 bg-[#0f0f11]">
+            <div className="w-full mt-12 mb-12 p-8 rounded-[1.75rem] border border-neutral-200 bg-white shadow-xl shadow-neutral-200/50 dark:border-white/20 dark:bg-[#0f0f11] dark:shadow-none">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8 font-sans">
                     <div className="flex flex-col gap-4 w-full">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white text-center font-instrument">
+                        <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white text-center font-instrument">
                             Devo in a <span className="text-yellow-500">gist</span>
                         </h2>
-                        <p className="text-white-100 text-base md:text-lg leading-relaxed text-left">
+                        <p className="text-neutral-700 dark:text-white text-base md:text-lg leading-relaxed text-left">
                             I am a Frontend Engineer with a passion for building scalable, high-performance systems.
                             I build cool things like{" "}
                             <LinkPreview url="https://github.com/arnabjena" isStatic imageSrc="/pixlate-final.png" className="text-yellow-500 font-bold" description="High-performance pixel art generator using Golang.">
@@ -32,21 +32,21 @@ const Experience = () => {
                         </p>
                     </div>
 
-                    <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    <a href="/arnab-jena-resume.pdf" download className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2 hover:bg-slate-900 transition-colors">
+                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-900 px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2 hover:bg-neutral-700 dark:bg-slate-950 dark:hover:bg-slate-900 transition-colors">
                             Download my resume
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download w-4 h-4 text-yellow-500"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                         </span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
-            <div className="relative border-l border-white/20 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10 my-8">
+            <div className="relative border-l border-neutral-200 dark:border-white/20 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10 my-8">
                 {workExperience.map((exp) => (
                     <div key={exp.id} className="relative">
                         {/* Timeline Dot */}
-                        <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white/20 bg-slate-950 flex items-center justify-center">
+                        <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-neutral-200 bg-white dark:border-white/20 dark:bg-slate-950 flex items-center justify-center">
                             {exp.date.includes("Present") ? (
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] shadow-[0_0_8px_#00E676]" />
                             ) : (

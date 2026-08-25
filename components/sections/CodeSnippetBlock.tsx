@@ -25,7 +25,7 @@ export default function CodeSnippetBlock({ title, language, code }: CodeSnippetB
   };
 
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.03] overflow-hidden">
+    <div className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 shadow-sm">
       <div className="flex items-center justify-between gap-3 px-4 py-2 border-b border-white/10">
         <div className="flex items-center gap-3">
           <span className="text-[10px] uppercase tracking-[0.45em] text-white/45" style={{ fontFamily: monoStack }}>

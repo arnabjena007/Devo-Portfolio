@@ -102,6 +102,8 @@ export const Navbar = () => {
         });
     };
 
+    if (pathname === "/") return null;
+
     return (
         <motion.nav
             initial={{ y: -10, opacity: 0 }}
@@ -113,7 +115,7 @@ export const Navbar = () => {
                 }`}
         >
             {/* Left: Logo */}
-            <Link href="/" className="flex items-center gap-0 select-none">
+            <Link href="/home" className="flex items-center gap-0 select-none">
                 <span className="text-lg md:text-xl font-bold tracking-[0.1em] text-neutral-900 dark:text-white uppercase font-serif">
                     DEVO
                 </span>

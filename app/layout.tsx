@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
 import { LeftSidebar } from "@/components/layout/LeftSidebar";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { LiveLinkPreviewProvider } from "@/components/ui/live-link-preview";
 
 const kalam = Kalam({
   subsets: ["latin"],
@@ -42,7 +43,8 @@ export default function RootLayout({
       <body className={`${kalam.variable} ${instrumentSerif.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
+          storageKey="devo-theme"
           enableSystem={false}
           disableTransitionOnChange
         >
@@ -57,13 +59,15 @@ export default function RootLayout({
           </Script>
           <div className="fixed inset-0 min-h-screen w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-500 pointer-events-none z-0" />
           <div className="relative z-10 w-full">
-            <div className="w-full max-w-3xl mx-auto border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
-              <Navbar />
-            </div>
-            <LeftSidebar />
-            <PageTransition>
-              {children}
-            </PageTransition>
+            <LiveLinkPreviewProvider>
+              <div className="w-full max-w-3xl mx-auto border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
+                <Navbar />
+              </div>
+              <LeftSidebar />
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </LiveLinkPreviewProvider>
           </div>
         </ThemeProvider>
       </body>

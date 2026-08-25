@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Eye, ArrowUpRight } from "lucide-react";
+import { Eye, ArrowUpRight, ChevronDown, Download } from "lucide-react";
 import { motion } from "motion/react";
 import { workExperience, featuredProjects } from "@/data";
 import Projects from "@/components/sections/Projects";
@@ -34,6 +34,7 @@ const DiagonalSeparator = () => (
 export const HomePage = () => {
     const [visitorCount, setVisitorCount] = React.useState<number | null>(null);
     const [activeProfileIndex, setActiveProfileIndex] = React.useState(0);
+    const [expandedExperienceId, setExpandedExperienceId] = React.useState<number | null>(null);
     const profilePhotos = [
         { src: "/profile.jpg", alt: "Arnab Jena" },
         { src: "/profile-mountain.png", alt: "Arnab Jena in the mountains" },
@@ -196,6 +197,14 @@ export const HomePage = () => {
                                         </div>
                                     )}
                                 </div>
+                                <a
+                                    href="/arnab-jena-resume.pdf"
+                                    download
+                                    className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs font-semibold text-neutral-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-yellow-500 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+                                >
+                                    <Download size={14} />
+                                    Download resume
+                                </a>
                             </div>
                         </div>
 
@@ -293,8 +302,11 @@ export const HomePage = () => {
                         <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Work Experience</h2>
                     </div>
 
-                    <div className="relative border-l border-neutral-200 dark:border-neutral-800/50 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10 my-8">
-                        {workExperience.map((exp) => (
+                    <div className="relative border-l border-neutral-200 dark:border-neutral-800/50 ml-4 md:ml-6 pl-6 md:pl-8 space-y-6 my-8">
+                        {workExperience.map((exp) => {
+                            const isExpanded = expandedExperienceId === exp.id;
+
+                            return (
                             <div key={exp.id} className="relative">
                                 {/* Timeline Dot */}
                                 <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-neutral-200 dark:border-neutral-800 bg-[#FAFAFA] dark:bg-[#0A0A0A] flex items-center justify-center">
@@ -326,12 +338,12 @@ export const HomePage = () => {
                                     </span>
 
                                     {exp.description && (
-                                        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base leading-relaxed mt-1">
+                                        <p className={`text-neutral-700 dark:text-neutral-300 text-sm md:text-base leading-relaxed mt-1 ${isExpanded ? "" : "line-clamp-2"}`}>
                                             {exp.description}
                                         </p>
                                     )}
 
-                                    {exp.points && exp.points.length > 0 && (
+                                    {isExpanded && exp.points && exp.points.length > 0 && (
                                         <ul className="mt-1 space-y-1 text-neutral-600 dark:text-neutral-400 text-sm md:text-base leading-relaxed list-none">
                                             {exp.points.map((point, index) => (
                                                 <li key={index} className="flex items-start gap-2">
@@ -342,16 +354,28 @@ export const HomePage = () => {
                                         </ul>
                                     )}
 
-                                    {exp.tech && exp.tech.length > 0 && (
+                                    {isExpanded && exp.tech && exp.tech.length > 0 && (
                                         <div className="flex flex-wrap items-center gap-3.5 mt-3">
                                             {exp.tech.map((iconPath, index) => (
                                                 <img key={index} src={iconPath} alt="tech icon" className="w-5 h-5 object-contain opacity-80 hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                                             ))}
                                         </div>
                                     )}
+                                    {(exp.points?.length || exp.tech?.length) && (
+                                        <button
+                                            type="button"
+                                            onClick={() => setExpandedExperienceId(isExpanded ? null : exp.id)}
+                                            className="mt-2 inline-flex w-fit items-center gap-1 text-xs font-semibold text-yellow-700 transition-colors hover:text-yellow-600 dark:text-yellow-400 dark:hover:text-yellow-300"
+                                            aria-expanded={isExpanded}
+                                        >
+                                            {isExpanded ? "Show less" : "View details"}
+                                            <ChevronDown size={14} className={`transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                                        </button>
+                                    )}
                                 </div>
                             </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </section>
 

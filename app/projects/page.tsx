@@ -7,6 +7,7 @@ import { Link as LinkIcon, ChevronLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 import Footer from "@/components/layout/Footer";
+import { HeadingAccent } from "@/components/ui/heading-accent";
 
 // Reusing the adapted ProjectCard that matches your data
 const ProjectCard = ({ 
@@ -27,11 +28,11 @@ const ProjectCard = ({
       <div className="flex flex-col h-full relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800/60 bg-white dark:bg-[#0a0a0c] hover:bg-neutral-50 dark:hover:bg-[#121215] hover:-translate-y-2 hover:shadow-xl hover:border-neutral-300 dark:hover:border-neutral-700/80 transition-all duration-300 ease-out">
         
         {/* Media section with permanent grid background */}
-        <div className="w-full h-44 relative overflow-hidden bg-neutral-100 dark:bg-[#111115] border-b border-neutral-100 dark:border-neutral-800/50 transition-all duration-500 ease-out">
+        <div className="w-full h-44 relative overflow-hidden bg-[#f8f8f8] dark:bg-[#111115] border-b border-neutral-200 dark:border-neutral-800/50 transition-all duration-500 ease-out">
           
           {/* Grid pattern (default) */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] transition-opacity duration-500 ease-out group-hover:opacity-0" 
-               style={{ backgroundImage: 'linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="absolute inset-0 opacity-[0.12] dark:opacity-[0.05] transition-opacity duration-500 ease-out group-hover:opacity-[0.18]"
+               style={{ backgroundImage: 'linear-gradient(to right, #71717a 1px, transparent 1px), linear-gradient(to bottom, #71717a 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
           </div>
 
           {/* Grid pattern (white glow on hover) */}
@@ -111,7 +112,7 @@ const ProjectsPage = () => {
               </div>
             </Link>
             <h2 className="relative font-serif italic text-3xl md:text-4xl inline-block font-bold text-neutral-900 dark:text-neutral-100">
-              Projects
+              <HeadingAccent variant="double">Projects</HeadingAccent>
             </h2>
           </div>
           

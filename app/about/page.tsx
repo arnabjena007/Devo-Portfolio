@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import { HeadingAccent } from "@/components/ui/heading-accent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -67,7 +68,7 @@ const About = () => {
                         Side Quests
                     </p>
                     <h1 className="mb-4 font-serif text-4xl font-bold tracking-wide text-white drop-shadow-md md:text-5xl">
-                        Other Pursuits
+                        <HeadingAccent variant="double" accentClassName="text-yellow-300">Other Pursuits</HeadingAccent>
                     </h1>
                     <p className="mx-auto max-w-xl text-base leading-relaxed text-white/90 drop-shadow-md sm:mx-0">
                         The parts of my life that sit just outside engineering: quizzing, writing, community work,
@@ -82,7 +83,7 @@ const About = () => {
                 <div className="relative flex items-center justify-between py-3">
                     <div className="absolute left-1/2 top-0 w-[100vw] -translate-x-1/2 border-t border-neutral-200 dark:border-neutral-800/50" />
                     <h2 className="font-serif text-3xl font-bold italic text-neutral-900 dark:text-white">
-                        All Pursuits
+                        <HeadingAccent>All Pursuits</HeadingAccent>
                     </h2>
                     <span className="font-mono text-xs text-neutral-500">
                         {pursuits.length} notes
