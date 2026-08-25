@@ -36,7 +36,7 @@ export const StartupPage = () => {
             <div className="mt-6 flex flex-wrap items-center gap-4 text-sm font-medium">
               <SoftUiButton href="/arnab-jena-resume.pdf" target="_blank" rel="noreferrer" size="sm">
                 <FileText size={15} />
-                Resume preview
+                Resume
               </SoftUiButton>
               <SoftUiButton href="/home" size="sm">
                 Visit main page <ArrowRight size={15} />
