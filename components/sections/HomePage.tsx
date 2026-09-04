@@ -30,14 +30,32 @@ const DiagonalSeparator = () => (
     </div>
 );
 
-const availabilityDotOffsets = [
-    { x: -78, y: -32, size: 3, delay: 0.02 }, { x: -58, y: 43, size: 2, delay: 0.12 },
-    { x: -35, y: -58, size: 2, delay: 0.18 }, { x: -18, y: 66, size: 3, delay: 0.05 },
-    { x: 11, y: -45, size: 2, delay: 0.2 }, { x: 28, y: 53, size: 3, delay: 0.1 },
-    { x: 48, y: -25, size: 2, delay: 0.16 }, { x: 73, y: 31, size: 3, delay: 0.08 },
-    { x: 88, y: -6, size: 2, delay: 0.22 }, { x: -94, y: 8, size: 2, delay: 0.14 },
-    { x: -47, y: -7, size: 3, delay: 0.06 }, { x: 44, y: 6, size: 2, delay: 0.19 },
-];
+const availabilityDots = Array.from({ length: 64 * 16 }, (_, index) => ({
+    x: (index % 64) * 16 + 8,
+    y: Math.floor(index / 64) * 16 + 8,
+}));
+
+const AvailabilityDots = ({ pointer }: { pointer: { x: number; y: number } | null }) => (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        {availabilityDots.map((dot, index) => {
+            const deltaX = pointer ? dot.x - pointer.x : 0;
+            const deltaY = pointer ? dot.y - pointer.y : 0;
+            const distance = Math.hypot(deltaX, deltaY);
+            const influence = pointer ? Math.max(0, 1 - distance / 56) : 0;
+            const offset = distance > 0 ? influence * 5 : 0;
+            const translateX = distance > 0 ? (deltaX / distance) * offset : 0;
+            const translateY = distance > 0 ? (deltaY / distance) * offset : 0;
+
+            return (
+                <span
+                    key={index}
+                    className="absolute size-px rounded-full bg-neutral-500/35 transition-transform duration-150 ease-out dark:bg-neutral-500/45"
+                    style={{ left: dot.x, top: dot.y, transform: `translate(${translateX}px, ${translateY}px)` }}
+                />
+            );
+        })}
+    </div>
+);
 
 
 export const HomePage = () => {
@@ -89,37 +107,7 @@ export const HomePage = () => {
                     }}
                     onPointerLeave={() => setAvailabilityPointer(null)}
                 >
-                    {/* Dotted grid pattern background */}
-                    <div className="absolute inset-0 dotted-background" />
-                    {availabilityPointer && (
-                        <>
-                            <motion.div
-                                aria-hidden
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.18 }}
-                                className="pointer-events-none absolute inset-0"
-                                style={{
-                                    backgroundImage: "radial-gradient(circle, rgba(245, 158, 11, 0.9) 1.7px, transparent 2px)",
-                                    backgroundSize: "16px 16px",
-                                    WebkitMaskImage: `radial-gradient(100px 78px at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 75%)`,
-                                    maskImage: `radial-gradient(100px 78px at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 75%)`,
-                                }}
-                            />
-                            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-                                {availabilityDotOffsets.map((dot, index) => (
-                                    <motion.span
-                                        key={index}
-                                        initial={{ x: 0, y: 0, opacity: 0, scale: 0.25 }}
-                                        animate={{ x: dot.x, y: dot.y, opacity: [0, 0.9, 0.35], scale: [0.25, 1.2, 0.7] }}
-                                        transition={{ duration: 0.7, delay: dot.delay, ease: "easeOut" }}
-                                        className="absolute rounded-full bg-amber-400/80 shadow-[0_0_10px_rgba(245,158,11,0.45)]"
-                                        style={{ left: availabilityPointer.x, top: availabilityPointer.y, width: dot.size, height: dot.size }}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    )}
+                    <AvailabilityDots pointer={availabilityPointer} />
 
 
 
