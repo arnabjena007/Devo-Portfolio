@@ -17,13 +17,13 @@ const DiagonalSeparator = () => (
             <div
                 className="absolute inset-0 block dark:hidden"
                 style={{
-                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(0, 0, 0, 0.03) 6px, rgba(0, 0, 0, 0.03) 7px)',
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(0, 0, 0, 0.065) 6px, rgba(0, 0, 0, 0.065) 7px)',
                 }}
             />
             <div
                 className="absolute inset-0 hidden dark:block"
                 style={{
-                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.1) 6px, rgba(255, 255, 255, 0.1) 7px)',
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.16) 6px, rgba(255, 255, 255, 0.16) 7px)',
                 }}
             />
         </div>
@@ -35,6 +35,7 @@ export const HomePage = () => {
     const [visitorCount, setVisitorCount] = React.useState<number | null>(null);
     const [activeProfileIndex, setActiveProfileIndex] = React.useState(0);
     const [expandedExperienceId, setExpandedExperienceId] = React.useState<number | null>(null);
+    const [availabilityPointer, setAvailabilityPointer] = React.useState<{ x: number; y: number } | null>(null);
     const profilePhotos = [
         { src: "/profile.jpg", alt: "Arnab Jena" },
         { src: "/profile-mountain.png", alt: "Arnab Jena in the mountains" },
@@ -71,9 +72,32 @@ export const HomePage = () => {
                 style={{ fontFamily: "var(--font-kalam), cursive" }}
             >
 
-                <div className="relative overflow-hidden -mx-6 sm:-mx-8 px-6 sm:px-8">
+                <div
+                    className="relative overflow-hidden -mx-6 sm:-mx-8 px-6 sm:px-8"
+                    onPointerMove={(event) => {
+                        const bounds = event.currentTarget.getBoundingClientRect();
+                        setAvailabilityPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
+                    }}
+                    onPointerLeave={() => setAvailabilityPointer(null)}
+                >
                     {/* Dotted grid pattern background */}
                     <div className="absolute inset-0 dotted-background" />
+                    {availabilityPointer && (
+                        <motion.div
+                            aria-hidden
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.18 }}
+                            className="pointer-events-none absolute inset-0"
+                            style={{
+                                backgroundImage: "radial-gradient(circle, rgba(245, 158, 11, 0.95) 1.8px, transparent 2px)",
+                                backgroundSize: "16px 16px",
+                                WebkitMaskImage: `radial-gradient(92px circle at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 72%)`,
+                                maskImage: `radial-gradient(92px circle at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 72%)`,
+                            }}
+                        />
+                    )}
 
 
 
