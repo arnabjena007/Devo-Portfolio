@@ -30,6 +30,15 @@ const DiagonalSeparator = () => (
     </div>
 );
 
+const availabilityDotOffsets = [
+    { x: -78, y: -32, size: 3, delay: 0.02 }, { x: -58, y: 43, size: 2, delay: 0.12 },
+    { x: -35, y: -58, size: 2, delay: 0.18 }, { x: -18, y: 66, size: 3, delay: 0.05 },
+    { x: 11, y: -45, size: 2, delay: 0.2 }, { x: 28, y: 53, size: 3, delay: 0.1 },
+    { x: 48, y: -25, size: 2, delay: 0.16 }, { x: 73, y: 31, size: 3, delay: 0.08 },
+    { x: 88, y: -6, size: 2, delay: 0.22 }, { x: -94, y: 8, size: 2, delay: 0.14 },
+    { x: -47, y: -7, size: 3, delay: 0.06 }, { x: 44, y: 6, size: 2, delay: 0.19 },
+];
+
 
 export const HomePage = () => {
     const [visitorCount, setVisitorCount] = React.useState<number | null>(null);
@@ -83,20 +92,33 @@ export const HomePage = () => {
                     {/* Dotted grid pattern background */}
                     <div className="absolute inset-0 dotted-background" />
                     {availabilityPointer && (
-                        <motion.div
-                            aria-hidden
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.18 }}
-                            className="pointer-events-none absolute inset-0"
-                            style={{
-                                backgroundImage: "radial-gradient(circle, rgba(245, 158, 11, 0.95) 1.8px, transparent 2px)",
-                                backgroundSize: "16px 16px",
-                                WebkitMaskImage: `radial-gradient(92px circle at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 72%)`,
-                                maskImage: `radial-gradient(92px circle at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 72%)`,
-                            }}
-                        />
+                        <>
+                            <motion.div
+                                aria-hidden
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.18 }}
+                                className="pointer-events-none absolute inset-0"
+                                style={{
+                                    backgroundImage: "radial-gradient(circle, rgba(245, 158, 11, 0.9) 1.7px, transparent 2px)",
+                                    backgroundSize: "16px 16px",
+                                    WebkitMaskImage: `radial-gradient(100px 78px at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 75%)`,
+                                    maskImage: `radial-gradient(100px 78px at ${availabilityPointer.x}px ${availabilityPointer.y}px, black 0%, transparent 75%)`,
+                                }}
+                            />
+                            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+                                {availabilityDotOffsets.map((dot, index) => (
+                                    <motion.span
+                                        key={index}
+                                        initial={{ x: 0, y: 0, opacity: 0, scale: 0.25 }}
+                                        animate={{ x: dot.x, y: dot.y, opacity: [0, 0.9, 0.35], scale: [0.25, 1.2, 0.7] }}
+                                        transition={{ duration: 0.7, delay: dot.delay, ease: "easeOut" }}
+                                        className="absolute rounded-full bg-amber-400/80 shadow-[0_0_10px_rgba(245,158,11,0.45)]"
+                                        style={{ left: availabilityPointer.x, top: availabilityPointer.y, width: dot.size, height: dot.size }}
+                                    />
+                                ))}
+                            </div>
+                        </>
                     )}
 
 
@@ -109,7 +131,7 @@ export const HomePage = () => {
                     >
                         <p className="text-lg md:text-2xl font-serif italic text-neutral-800 dark:text-neutral-100 text-center leading-relaxed">
                             <motion.span
-                                whileHover={{ y: -3, rotate: -2, scale: 1.045 }}
+                                whileHover={{ y: -3, rotate: [-2, -1.2, -2], scale: 1.045 }}
                                 transition={{ type: "spring", stiffness: 360, damping: 16 }}
                                 className="group relative inline-flex cursor-default px-2 py-0.5"
                             >
