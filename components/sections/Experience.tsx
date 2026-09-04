@@ -2,6 +2,7 @@ import React from "react";
 
 import { workExperience } from "@/data";
 import { LinkPreview } from "@/components/ui/link-preview";
+import { ResumePreview } from "@/components/ui/resume-preview";
 
 const Experience = () => {
     return (
@@ -32,13 +33,13 @@ const Experience = () => {
                         </p>
                     </div>
 
-                    <a href="/arnab-jena-resume.pdf" download className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    <ResumePreview className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                         <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-900 px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2 hover:bg-neutral-700 dark:bg-slate-950 dark:hover:bg-slate-900 transition-colors">
-                            Download my resume
+                            Resume
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download w-4 h-4 text-yellow-500"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                         </span>
-                    </a>
+                    </ResumePreview>
                 </div>
             </div>
 

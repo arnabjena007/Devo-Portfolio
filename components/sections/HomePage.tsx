@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Eye, ArrowUpRight, ChevronDown, Download } from "lucide-react";
+import { Eye, ArrowUpRight, ChevronDown, FileText } from "lucide-react";
 import { motion } from "motion/react";
 import { workExperience, featuredProjects } from "@/data";
 import Projects from "@/components/sections/Projects";
@@ -9,6 +9,7 @@ import GitHubContributions, { GitHubContributionsFallback } from "@/components/s
 import GithubIcon from "@/components/icons/GithubIcon";
 import TwitterXIcon from "@/components/icons/TwitterXIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import { ResumePreview } from "@/components/ui/resume-preview";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
@@ -235,14 +236,12 @@ export const HomePage = () => {
                                         </div>
                                     )}
                                 </div>
-                                <a
-                                    href="/arnab-jena-resume.pdf"
-                                    download
+                                <ResumePreview
                                     className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs font-semibold text-neutral-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-yellow-500 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
                                 >
-                                    <Download size={14} />
-                                    Download resume
-                                </a>
+                                    <FileText size={14} />
+                                    Resume
+                                </ResumePreview>
                             </div>
                         </div>
 

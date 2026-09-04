@@ -6,6 +6,7 @@ import { IconBrandGithub, IconBrandLinkedin, IconBrandX, IconMail } from "@table
 import { motion } from "motion/react";
 import { featuredProjects } from "@/data";
 import { SoftUiButton } from "@/components/ui/soft-ui-button";
+import { ResumePreview } from "@/components/ui/resume-preview";
 
 export const StartupPage = () => {
   const spotlightProjects = featuredProjects.filter((project) => ["Pixlate", "Colora", "VOXI"].includes(project.title));
@@ -34,10 +35,10 @@ export const StartupPage = () => {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-sm font-medium">
-              <SoftUiButton href="/arnab-jena-resume.pdf" target="_blank" rel="noreferrer" size="sm">
+              <ResumePreview className="inline-flex h-9 cursor-pointer items-center justify-center gap-1.5 rounded-xl bg-neutral-100 px-3.5 text-xs font-semibold text-neutral-800 shadow-[6px_6px_14px_rgba(0,0,0,0.08),-6px_-6px_14px_rgba(255,255,255,0.9)] transition-[box-shadow,color] duration-200 hover:text-neutral-950 active:shadow-[inset_4px_4px_10px_rgba(0,0,0,0.08),inset_-4px_-4px_10px_rgba(255,255,255,0.85)] dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-[6px_6px_14px_rgba(0,0,0,0.25),-6px_-6px_14px_rgba(255,255,255,0.04)]">
                 <FileText size={15} />
                 Resume
-              </SoftUiButton>
+              </ResumePreview>
               <SoftUiButton href="/home" size="sm">
                 Visit main page <ArrowRight size={15} />
               </SoftUiButton>

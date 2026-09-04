@@ -15,7 +15,7 @@
 
 | Project | What it is | Stack | Links |
 | --- | --- | --- | --- |
-| [Pixlate](#pixlate) | Fast pixel-art generation | Go | [Live](https://pixlate-web.vercel.app/) · [Code](https://github.com/arnabjena007/Pixlate) |
+| [Pixlate](#pixlate) | Fast pixel-art generation | Go | [Live](https://pixlate-devo.vercel.app/) · [Code](https://github.com/arnabjena007/Pixlate) |
 | [In.decoded](#indecoded) | Interactive data story on India’s delimitation debate | SvelteKit · D3 · Scrollama | [Live](https://indicoded.vercel.app/) · [Code](https://github.com/arnabjena007/indi.coded-website) |
 | [GitMap](#gitmap) | Customizable contribution heatmaps for React | React · TypeScript | [Live](https://gitmap-devo.vercel.app/) · [Code](https://github.com/arnabjena007/gitmap) |
 | [VOXI](#voxi) | Real-time voxel building rooms | TypeScript · Three.js · Rust | [Live](https://voxi-devo.vercel.app/) · [Code](https://github.com/arnabjena007/voxi) |
@@ -31,7 +31,7 @@
 
 > Turn photos into abstract pixel art — quickly, predictably, and from the command line.
 
-[![Pixlate preview](./public/pixlate-final.png)](https://pixlate-web.vercel.app/)
+[![Pixlate preview](./public/pixlate-final.png)](https://pixlate-devo.vercel.app/)
 
 Pixlate is a Go-based image transformation CLI that turns regular images into pixel-art compositions. Its parallel processing pipeline makes it practical to generate high-resolution output and multiple variations without a graphical editor.
 
@@ -42,7 +42,7 @@ Pixlate is a Go-based image transformation CLI that turns regular images into pi
 - Sweep mode, seeded randomness, colour sorting, and variations
 - Scriptable command-line workflow
 
-[![Live demo](https://img.shields.io/badge/Live_demo-Open-111111?style=flat-square&logo=vercel)](https://pixlate-web.vercel.app/) [![Source code](https://img.shields.io/badge/Source_code-GitHub-181717?style=flat-square&logo=github)](https://github.com/arnabjena007/Pixlate)
+[![Live demo](https://img.shields.io/badge/Live_demo-Open-111111?style=flat-square&logo=vercel)](https://pixlate-devo.vercel.app/) [![Source code](https://img.shields.io/badge/Source_code-GitHub-181717?style=flat-square&logo=github)](https://github.com/arnabjena007/Pixlate)
 
 **Video walkthrough**
 
