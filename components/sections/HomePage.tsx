@@ -84,11 +84,15 @@ export const HomePage = () => {
                         className="relative z-10 flex flex-col items-center justify-center py-10 md:py-16 px-4"
                     >
                         <p className="text-lg md:text-2xl font-serif italic text-neutral-800 dark:text-neutral-100 text-center leading-relaxed">
-                            <span className="relative inline-flex px-2 py-0.5">
-                                <span className="absolute -inset-x-2 bottom-0.5 top-0.5 -rotate-1 skew-x-[-5deg] rounded-[10%_22%_13%_18%] bg-amber-200/75 dark:bg-amber-300/35" />
-                                <span className="absolute -inset-x-1 bottom-1.5 top-1 rotate-[0.8deg] skew-x-[3deg] rounded-[18%_10%_22%_12%] bg-yellow-300/35 dark:bg-yellow-200/15" />
-                                <span className="relative">Open for full-time</span>
-                            </span>
+                            <motion.span
+                                whileHover={{ y: -3, rotate: -2, scale: 1.045 }}
+                                transition={{ type: "spring", stiffness: 360, damping: 16 }}
+                                className="group relative inline-flex cursor-default px-2 py-0.5"
+                            >
+                                <span className="absolute -inset-x-2 bottom-0.5 top-0.5 -rotate-1 skew-x-[-5deg] rounded-[10%_22%_13%_18%] bg-amber-200/75 transition-transform duration-300 group-hover:scale-x-110 group-hover:rotate-1 dark:bg-amber-300/35" />
+                                <span className="absolute -inset-x-1 bottom-1.5 top-1 rotate-[0.8deg] skew-x-[3deg] rounded-[18%_10%_22%_12%] bg-yellow-300/35 transition-transform duration-300 group-hover:scale-x-105 group-hover:-rotate-1 dark:bg-yellow-200/15" />
+                                <span className="relative transition-[letter-spacing] duration-300 group-hover:tracking-wide">Open for full-time</span>
+                            </motion.span>
                         </p>
                     </motion.div>
                 </div>
@@ -228,6 +232,19 @@ export const HomePage = () => {
                             here
                         </Link>.
                     </p>
+                </section>
+
+                <DiagonalSeparator />
+
+                {/* GITHUB ACTIVITY SECTION */}
+                <section className="space-y-4">
+                    <div className="relative py-3">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
+                        <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">GitHub Activity</h2>
+                    </div>
+                    <React.Suspense fallback={<GitHubContributionsFallback />}>
+                        <GitHubContributions />
+                    </React.Suspense>
                 </section>
 
                 <DiagonalSeparator />
@@ -391,19 +408,6 @@ export const HomePage = () => {
                 </section>
 
                 <DiagonalSeparator />
-
-                {/* GITHUB ACTIVITY SECTION */}
-                <section className="space-y-4">
-                    <div className="relative py-3">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-                        <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">GitHub Activity</h2>
-                    </div>
-                    <React.Suspense fallback={<GitHubContributionsFallback />}>
-                        <GitHubContributions />
-                    </React.Suspense>
-                </section>
-
-
 
             </div>
 
